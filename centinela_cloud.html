@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CENTINELA_CLOUD_DB</title>
+</head>
+<body style="background:#000;color:#00ff88;font-family:monospace;padding:20px">
+<h1>🛡️ CENTINELA_CLOUD_DB</h1>
+<p id="estado">Creando base...</p>
+<script>
+// CENTINELA_CLOUD_DB - Versión para navegador - Tu nube
+const DB_NOMBRE = "CENTINELA_CLOUD_DB";
+
+// 1. USUARIOS
+let usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+// 2. NIVELES - JOHN, JACKSON, JDC, CCC, BPS
+let niveles = JSON.parse(localStorage.getItem("niveles") || JSON.stringify([
+  {codigo:"JOHN", nombre:"JOHN", dificultad:"FACIL", bonus:100, desbloqueado:1},
+  {codigo:"JACKSON", nombre:"JACKSON", dificultad:"MEDIO", bonus:200, desbloqueado:0},
+  {codigo:"JDC", nombre:"JDC", dificultad:"DIFICIL", bonus:300, desbloqueado:0},
+  {codigo:"CCC", nombre:"CCC", dificultad:"MUY DIFICIL", bonus:400, desbloqueado:0},
+  {codigo:"BPS", nombre:"BPS", dificultad:"EXTREMISTA", bonus:500, desbloqueado:0}
+]));
+// 3. PERSONAJES
+let personajes = JSON.parse(localStorage.getItem("personajes") || "[]");
+// 4. CANCIONES
+let canciones = JSON.parse(localStorage.getItem("canciones") || "[]");
+// 5. SEGURIDAD
+let seguridad = JSON.parse(localStorage.getItem("seguridad") || "[]");
+// 6. PROGRESO
+let progreso = JSON.parse(localStorage.getItem("progreso") || "[]");
+
+function guardarTodo(){
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  localStorage.setItem("niveles", JSON.stringify(niveles));
+  localStorage.setItem("personajes", JSON.stringify(personajes));
+  localStorage.setItem("canciones", JSON.stringify(canciones));
+  localStorage.setItem("seguridad", JSON.stringify(seguridad));
+  localStorage.setItem("progreso", JSON.stringify(progreso));
+  // RESPALDO EN TU NUBE
+  localStorage.setItem("CENTINELA_respaldo", JSON.stringify({usuarios, niveles, personajes, canciones, seguridad, progreso, fecha: new Date()}));
+}
+
+guardarTodo();
+document.getElementById("estado").innerHTML = "✅ CENTINELA_CLOUD_DB creada, JEFE.<br>Niveles: " + niveles.length + "<br>Usuarios: " + usuarios.length + "<br>Respaldo: OK";
+console.log("CENTINELA_CLOUD_DB lista, JEFE");
+</script>
+</body>
+</html>
