@@ -10,8 +10,12 @@
 <a href="index.html" style="color:white;font-size:18px">⬅ Volver al inicio</a>
    <h1>🛡️ CENTINELA_CLOUD_DB</h1>
 <p id="estado">Creando base...</p>
-<script>
-// CENTINELA_CLOUD_DB - Versión para navegador - Tu nube
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   <script>const SUPABASE_URL = "https://bgfginclhuejrwujzasu.supabase.co";
+const SUPABASE_URL = 
+const SUPABASE_KEY = sb_publishable_BSsuVHJpMju-_ndwfuMIgg_uTaG1L7L
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+     // CENTINELA_CLOUD_DB - Versión para navegador - Tu nube
 const DB_NOMBRE = "CENTINELA_CLOUD_DB";
 
 // 1. USUARIOS
